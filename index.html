@@ -36,16 +36,17 @@
 </head>
 <!-- Hero Section with Video Background -->
 <section id="luxe-hero" class="position-relative vh-100 overflow-hidden">
-  <!-- Video Background -->
+  <!-- Video Background - Modified for mobile -->
   <div class="video-background position-absolute w-100 h-100">
-    <video autoplay muted loop playsinline class="w-100 h-100 object-fit-cover">
+    <video autoplay muted loop playsinline class="w-100 h-100 object-fit-cover" style="object-position: center;">
       <source src="Purple and Pink Bubble Gradient Cute ModernvComing Soon Video.mp4" type="video/mp4">
       <!-- Fallback image -->
-      <img src="hero-fallback.jpg" alt="Luxury fashion show" class="w-130 h-140 object-fit-cover">
+      <img src="hero-fallback.jpg" alt="Luxury fashion show" class="w-100 h-100 object-fit-cover">
     </video>
     <div class="video-overlay position-absolute w-100 h-100" style="background: linear-gradient(45deg, rgba(0,0,0,0.4) 0%, rgba(80,20,100,0.2) 100%);"></div>
   </div>
 
+  <!-- Rest of your content remains the same -->
   <!-- Bento Grid Overlay -->
   <div class="bento-grid position-absolute w-100 h-100 d-grid" style="
     grid-template-columns: repeat(12, 1fr);
@@ -88,9 +89,38 @@
     line-height: 1.2;
   }
   
-  /* Video background styling */
+  /* Video background styling - Modified for mobile */
   .video-background {
     z-index: -1;
+  }
+  
+  /* Mobile-specific adjustments */
+  @media (max-width: 768px) {
+    #luxe-hero {
+      height: 100vh !important;
+    }
+    
+    .video-background {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    
+    .video-background video {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Optional: Adjust bento grid for mobile */
+    .bento-grid {
+      display: none !important; /* Hide bento grid on mobile if it's too busy */
+    }
+    
+    /* Adjust floating bubbles for mobile */
+    .position-absolute[style*="radial-gradient"] {
+      width: 60px !important;
+      height: 60px !important;
+    }
   }
   
   /* Bento grid effects */
